@@ -1,0 +1,2 @@
+set pcname DB-SERVER
+ip 10.30.91.3 10.30.91.6 29

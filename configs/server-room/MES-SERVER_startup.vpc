@@ -1,0 +1,2 @@
+set pcname MES-SERVER
+ip 10.30.92.3 10.30.92.6 29

@@ -1,0 +1,2 @@
+set pcname NAS-STORAGE
+ip 10.30.90.3 10.30.90.6 29
