@@ -66,6 +66,15 @@ Jaringan dirancang dengan arsitektur hierarki tiga tingkat:
 
 ## 🗺️ Topologi Jaringan
 
+### Diagram Topologi
+
+Visualisasi lengkap infrastruktur jaringan tersedia dalam folder `diagrams/`:
+
+- **[Rancangan Topologi](diagrams/Rancangan%20-Topologi%20Infrastruktur%20Network.jpg)** - Desain awal topologi jaringan
+- **[Implementasi Topologi](diagrams/Implementasi%20-Topologi%20Infrastruktur%20Network.png)** - Topologi implementasi di GNS3
+
+### Segmentasi Jaringan
+
 Jaringan dibagi menjadi tiga segmen utama:
 
 ### 1️⃣ **Jaringan Kantor** (Zona IT)
@@ -368,7 +377,7 @@ industrial-cpwe-network/
 │       ├── DB-SERVER_startup.vpc
 │       ├── MES-SERVER_startup.vpc
 │       └── NAS-STORAGE_startup.vpc
-├── diagrams/                          # Diagram jaringan 
+├── diagrams/                          # Diagram jaringan
 ├── doc/                               # Dokumentasi Lengkap
 └── gns3_project/                      # File project GNS3
     └── Network Topology in the Automation Industry.gns3project
@@ -377,6 +386,24 @@ industrial-cpwe-network/
 ---
 
 ## 📚 Dokumentasi
+
+### Dokumentasi Lengkap
+
+Untuk pemahaman yang lebih mendalam tentang desain dan implementasi jaringan, tersedia dokumentasi lengkap:
+
+- **[Full Network Design Documentation](doc/Full_Network_Design_Documentation.pdf)** - Dokumentasi komprehensif mencakup:
+  - Analisis kebutuhan jaringan
+  - Desain arsitektur detail
+  - Konfigurasi perangkat lengkap
+  - Testing dan troubleshooting
+  - Best practices implementasi
+
+### Diagram Topologi
+
+Diagram visual jaringan tersedia dalam folder `diagrams/`:
+
+- **Rancangan Topologi** - Desain konseptual awal
+- **Implementasi Topologi** - Screenshot implementasi di GNS3
 
 ### File Konfigurasi
 
@@ -416,8 +443,8 @@ Project ini tersedia untuk tujuan edukasi dan portfolio. Silakan gunakan sebagai
 
 Untuk pertanyaan, saran, atau kesempatan kolaborasi, jangan ragu untuk menghubungi!
 
-**⭐ Jika project ini bermanfaat, pertimbangkan untuk memberikan star!**
+**⭐ Jika project ini bermanfat, pertimbangkan untuk memberikan star!**
 
 ---
 
-_Terakhir Diperbarui: Desember 2025_
+_Terakhir Diperbarui: Januari 2026_
