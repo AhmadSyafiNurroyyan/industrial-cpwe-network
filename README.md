@@ -80,10 +80,8 @@ Jaringan dibagi menjadi tiga segmen utama:
 ### 2️⃣ **Jaringan Produksi** (Zona OT)
 
 ```
-- Industrial Control Systems
-- Peralatan Manufaktur
-- Integrasi SCADA/MES
-- Akses Lini Produksi
+- Production Control
+- 11 Area Produksi
 ```
 
 ### 3️⃣ **Ruang Server** (Data Center)
@@ -116,7 +114,6 @@ Jaringan dibagi menjadi tiga segmen utama:
 
 - 🔄 **Static Routing**: Untuk pola lalu lintas yang dapat diprediksi
 - 🔄 **Dynamic Routing**: OSPF untuk skalabilitas
-- 🔄 **VTP**: Manajemen VLAN di seluruh switch
 - 🔄 **STP**: Pencegahan loop dengan Rapid-PVST+
 
 ### Layanan
@@ -131,28 +128,36 @@ Jaringan dibagi menjadi tiga segmen utama:
 
 ### VLAN Kantor
 
-| VLAN ID | Nama       | Network       | Deskripsi                 |
-| ------- | ---------- | ------------- | ------------------------- |
-| VLAN 10 | IT Control | 10.10.10.0/26 | Workstation departemen IT |
-| VLAN 20 | Finance    | 10.10.20.0/26 | Departemen Finance        |
-| VLAN 30 | Management | 10.10.30.0/26 | Kantor Management         |
-| VLAN 40 | Marketing  | 10.10.40.0/26 | Departemen Marketing      |
+| VLAN ID | Nama       | Network       | IPv6 Subnet       |
+| ------- | ---------- | ------------- | ----------------- |
+| VLAN 10 | IT Control | 10.10.10.0/26 | FD00:ACAD:10::/64 |
+| VLAN 20 | Finance    | 10.10.20.0/26 | FD00:ACAD:20::/64 |
+| VLAN 30 | Management | 10.10.30.0/26 | FD00:ACAD:30::/64 |
+| VLAN 40 | Marketing  | 10.10.40.0/26 | FD00:ACAD:40::/64 |
 
 ### VLAN Produksi
 
-| VLAN ID  | Nama               | Network        | Deskripsi                      |
-| -------- | ------------------ | -------------- | ------------------------------ |
-| VLAN 100 | Production Control | 10.20.100.0/24 | Sistem kontrol manufaktur      |
-| VLAN 110 | SCADA              | 10.20.110.0/24 | Sistem SCADA/HMI               |
-| VLAN 120 | PLC Network        | 10.20.120.0/24 | Programmable Logic Controllers |
-| VLAN 130 | Sensors            | 10.20.130.0/24 | Sensor industrial dan IoT      |
+| VLAN ID  | Nama                         | Network        | IPv6 Subnet        |
+| -------- | ---------------------------- | -------------- | ------------------ |
+| VLAN 100 | Material Warehouse           | 10.20.100.0/27 | FD00:CCCC:100::/64 |
+| VLAN 101 | Metal Fabrication            | 10.20.101.0/27 | FD00:CCCC:101::/64 |
+| VLAN 102 | Welding & Metal Assembly     | 10.20.102.0/27 | FD00:CCCC:102::/64 |
+| VLAN 103 | Surface Treatment            | 10.20.103.0/27 | FD00:CCCC:103::/64 |
+| VLAN 104 | CNC Milling                  | 10.20.104.0/27 | FD00:CCCC:104::/64 |
+| VLAN 105 | PCB Finishing & Testing      | 10.20.105.0/27 | FD00:CCCC:105::/64 |
+| VLAN 106 | Main Assembly                | 10.20.106.0/27 | FD00:CCCC:106::/64 |
+| VLAN 107 | Sealing & Cover Installation | 10.20.107.0/27 | FD00:CCCC:107::/64 |
+| VLAN 108 | Painting & Final Testing     | 10.20.108.0/27 | FD00:CCCC:108::/64 |
+| VLAN 109 | Quality Control & Testing    | 10.20.109.0/27 | FD00:CCCC:109::/64 |
+| VLAN 110 | Packaging & Warehouse        | 10.20.110.0/27 | FD00:CCCC:110::/64 |
 
 ### VLAN Server
 
-| VLAN ID  | Nama    | Network         | Deskripsi                    |
-| -------- | ------- | --------------- | ---------------------------- |
-| VLAN 200 | Servers | 10.100.200.0/24 | Server database dan aplikasi |
-| VLAN 210 | Storage | 10.100.210.0/24 | Sistem NAS dan storage       |
+| VLAN ID | Nama        | Network       | Deskripsi                             |
+| ------- | ----------- | ------------- | ------------------------------------- |
+| VLAN 90 | NAS Storage | 10.30.90.0/29 | Server NAS dan storage                |
+| VLAN 91 | DB Server   | 10.30.91.0/29 | Database server untuk data produksi   |
+| VLAN 92 | MES Server  | 10.30.92.0/29 | Manufacturing Execution System server |
 
 ---
 
@@ -161,20 +166,20 @@ Jaringan dibagi menjadi tiga segmen utama:
 ### Hardware (Simulasi)
 
 - **Cisco IOS Routers**: Seri 7200
-- **Cisco Catalyst Switches**: Switch Layer 2 dan Layer 3
+- **Cisco Catalyst Switches**: Switch Layer 2
 - **Industrial Ethernet Switches**: Untuk lingkungan OT
 
 ### Software & Tools
 
 - **GNS3**: Platform simulasi jaringan
-- **Cisco IOS**: Versi 15.x
+- **Cisco IOS**: Versi 15.9
 - **VPCS**: Virtual PC Simulator untuk endpoint
 
 ### Protokol & Standar
 
-- **Routing**: Static, OSPF, IPv6
+- **Routing**: Static, OSPF
 - **Switching**: VLANs, VTP, STP (RSTP/PVST+)
-- **Services**: DHCP, DNS, NTP
+- **Services**: DHCP, DNS
 - **Security**: ACLs, Port Security, DHCP Snooping
 - **Tunneling**: GRE (IPv6 over IPv4)
 
@@ -214,7 +219,7 @@ Jaringan dibagi menjadi tiga segmen utama:
 - Port security (filtering MAC)
 - Konfigurasi DHCP client
 
-### Konfigurasi Server
+### Konfigurasi Server (Simulated)
 
 **DB-SERVER** (Database Server)
 
@@ -363,8 +368,8 @@ industrial-cpwe-network/
 │       ├── DB-SERVER_startup.vpc
 │       ├── MES-SERVER_startup.vpc
 │       └── NAS-STORAGE_startup.vpc
-├── diagrams/                          # Diagram jaringan (akan ditambahkan)
-├── doc/                               # Dokumentasi tambahan
+├── diagrams/                          # Diagram jaringan 
+├── doc/                               # Dokumentasi Lengkap
 └── gns3_project/                      # File project GNS3
     └── Network Topology in the Automation Industry.gns3project
 ```
@@ -381,58 +386,15 @@ Semua konfigurasi perangkat tersimpan dalam direktori `configs/` dan terorganisi
 - **Konfigurasi Produksi**: Infrastruktur jaringan produksi dan industrial switch
 - **Konfigurasi Ruang Server**: Core router, server access switch, dan konfigurasi startup server
 
-### Konvensi Penamaan
-
-**Routers**: `<ZONE>-<LAYER>-ROUTER.cfg`
-
-- Contoh: `OFFICE-DISTRIBUTION-ROUTER.cfg`
-
-**Switches**: `<NAME>_configs_i<ID>_startup-config.cfg`
-
-- Contoh: `ITCONTROL-ACCESS-SWITCH_configs_i1_startup-config.cfg`
-
-**Servers**: `<NAME>_startup.vpc`
-
-- Contoh: `DB-SERVER_startup.vpc`
-
----
-
-## 🎓 Hasil Pembelajaran
-
-Dengan mempelajari project ini, Anda akan mempelajari:
-
-- ✅ **Arsitektur CPwE**: Prinsip desain jaringan industrial
-- ✅ **Segmentasi Jaringan**: Strategi pemisahan IT/OT
-- ✅ **Desain Hierarki**: Model Core-Distribution-Access
-- ✅ **Konfigurasi VLAN**: Trunk ports, VTP, dan inter-VLAN routing
-- ✅ **Protokol Routing**: Static routes, OSPF, dan IPv6 tunneling
-- ✅ **Kebijakan Keamanan**: ACLs, port security, dan traffic filtering
-- ✅ **Jaringan Industrial**: Integrasi SCADA, MES, dan jaringan produksi
-- ✅ **Skill GNS3**: Simulasi dan testing jaringan
-
----
-
-## 🔍 Pengembangan Masa Depan
-
-- [ ] Menambahkan diagram topologi jaringan
-- [ ] Implementasi kebijakan QoS untuk lalu lintas industrial
-- [ ] Konfigurasi monitoring SNMP
-- [ ] Menambahkan redundansi dengan HSRP/VRRP
-- [ ] Implementasi dynamic routing (OSPF/EIGRP)
-- [ ] Menambahkan konfigurasi firewall
-- [ ] Integrasi jaringan wireless
-- [ ] Script otomasi jaringan (Python/Ansible)
-
 ---
 
 ## 👤 Pembuat
 
 **Ahmad Syafi Nurroyyan**
 
-- Portfolio: [Website Portfolio Anda]
-- LinkedIn: [Profil LinkedIn Anda]
+- LinkedIn: https://www.linkedin.com/in/ahmad-syafi-nurroyyan-34ab81321/
 - GitHub: [@AhmadSyafiNurroyyan](https://github.com/AhmadSyafiNurroyyan)
-- Email: [Email Anda]
+- Email: [ahmadsyafinurroyyan@gmail.com]
 
 ---
 
