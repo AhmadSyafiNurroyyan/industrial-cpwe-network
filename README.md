@@ -70,8 +70,8 @@ The network is designed with a three-tier hierarchical architecture:
 
 Complete visualization of the network infrastructure is available in the `diagrams/` folder:
 
-- **[Network Design Topology](diagrams/Rancangan%20-Topologi%20Infrastruktur%20Network.jpg)** - Initial network topology design
-- **[Network Implementation Topology](diagrams/Implementasi%20-Topologi%20Infrastruktur%20Network.png)** - Implementation topology in GNS3
+- **[Network Design Topology](diagrams/Design%20-%20Network%20Infrastructure%20Topology.jpg)** - Initial network topology design
+- **[Network Implementation Topology](diagrams/Implementation%20-%20Network%20Infrastructure%20Topology.png)** - Implementation topology in GNS3
 
 ### Network Segmentation
 
