@@ -1,4 +1,4 @@
-# Industrial CPwE Network Infrastructure
+# Industrial CPwE Network Simulation
 
 [![GNS3](https://img.shields.io/badge/GNS3-Network%20Simulation-green)](https://www.gns3.com/)
 [![Cisco IOS](https://img.shields.io/badge/Cisco-IOS-blue)](https://www.cisco.com/)
